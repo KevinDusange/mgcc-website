@@ -13,7 +13,6 @@
 			dropdown: ".cs-dropdown",
 			dropdownMenu: ".cs-drop-ul",
 			navButton: ".cs-nav-button",
-			darkModeToggle: "#dark-mode-toggle",
 		},
 		CLASSES: {
 			active: "cs-active",
@@ -28,7 +27,6 @@
 		hamburger: document.querySelector(CONFIG.SELECTORS.hamburger),
 		menuWrapper: document.querySelector(CONFIG.SELECTORS.menuWrapper),
 		navButton: document.querySelector(CONFIG.SELECTORS.navButton),
-		darkModeToggle: document.querySelector(CONFIG.SELECTORS.darkModeToggle),
 	};
 
 	// Utilities
