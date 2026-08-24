@@ -76,8 +76,6 @@ function moveDemoPages() {
 		"about.html",
 		"contact.html",
 		"reviews.html",
-		"project-one.html",
-		"project-two.html",
 	];
 
 	let count = 0;
@@ -98,7 +96,6 @@ function moveDemoLess() {
 		"about.less",
 		"contact.less",
 		"reviews.less",
-		"projects.less",
 	];
 
 	let count = 0;
@@ -121,10 +118,6 @@ function moveDemoImages() {
 	for (const img of images) {
 		if (moveItem(`src/assets/images/${img}`, path.join(dest, img))) count++;
 	}
-
-	// Move portfolio/ folder
-	if (moveItem("src/assets/images/portfolio", path.join(dest, "portfolio")))
-		count++;
 
 	// Move gallery/ folder if it exists
 	if (moveItem("src/assets/images/gallery", path.join(dest, "gallery")))

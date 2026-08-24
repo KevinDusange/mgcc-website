@@ -1,21 +1,24 @@
 {
-  "name": "Starter Kit",
-  "short_name": "Starter Kit",
+  "name": "Mega Global Commerce Corporation",
+  "short_name": "MGCC",
+  "description": "International import, export, logistics, sourcing, and trade compliance solutions.",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/assets/favicons/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "/assets/favicons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#991b1e",
   "background_color": "#ffffff",
   "display": "standalone"
 }

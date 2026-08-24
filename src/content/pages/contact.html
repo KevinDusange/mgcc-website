@@ -1,6 +1,6 @@
 ---
-title: "Contact | Code Stitch Web Designs"
-description: "Meta description for the page"
+title: "Contact MGCC | Canada & U.S. Offices"
+description: "Contact Mega Global Commerce Corporation in Canada or the United States for import, export, logistics, trade compliance, and global sourcing support."
 permalink: "/contact/"
 ---
 
@@ -8,8 +8,7 @@ permalink: "/contact/"
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/contact.css">
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}"/>
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | avif %}"/>
+    <link rel="preload" as="image" href="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 640, height: 600 }) | avif %}"/>
 {% endblock %}
 
 {% block body %}
@@ -20,7 +19,7 @@ permalink: "/contact/"
 
     <div id="banner-310">
         <div class="cs-container">
-            <span class="cs-int-title">Contact Us</span>
+            <h1 class="cs-int-title">Contact Us</h1>
             <div class="cs-breadcrumbs">
                 <a href="/" class="cs-link">Home</a>
                 <a href="/contact/" class="cs-link cs-active">Contact Us</a>
@@ -29,18 +28,18 @@ permalink: "/contact/"
         <!--Background Image-->
         <picture class="cs-background">
             <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
+            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
             <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
             <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
+            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
+            <img src="{% getUrl "/assets/images/mgcc/global-port-hero.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="Container ships and cranes at an international port" width="1920" height="482" loading="eager" decoding="async">
         </picture>
     </div>
 
@@ -55,10 +54,14 @@ permalink: "/contact/"
                     <span class="cs-topper">Contact</span>
                     <h2 class="cs-title">Get in Touch</h2>
                     <p class="cs-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ridiculus elementum ullamcorper ipsum porttitor aliquam. Id magna urna ultrices odio pulvinar. Sed ut.
+                        Contact our Canadian or U.S. team by phone, email, or the form below. We will respond as soon as possible.
                     </p>
                 </div>
-                <form id="cs-form-265" name="Contact Form" method="post">
+                <form id="cs-form-265" name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p hidden>
+                        <label>Do not fill out this field: <input name="bot-field"></label>
+                    </p>
                     <label>
                         Name
                         <input required type="text" id="name-265" name="name" placeholder="Name">
@@ -69,7 +72,7 @@ permalink: "/contact/"
                     </label>
                     <label>
                         Phone
-                        <input required type="text" id="phone-265" name="phone" placeholder="Phone">
+                        <input required type="tel" id="phone-265" name="phone" placeholder="Phone">
                     </label>
                     <label>
                         How Did You Find Us
@@ -82,38 +85,61 @@ permalink: "/contact/"
                     <button class="cs-button-solid cs-submit" type="submit">Submit Message</button>
                 </form>
             </div>
-            <div class="cs-right-section">
-                <!--Email-->
-                <span class="cs-header">Email</span>
-                <a class="cs-link" href="mailto:{{ client.email }}">{{ client.email }}</a>
-                <!--Phone-->
-                <span class="cs-header">Phone</span>
-                <a class="cs-link" href="tel:{{ client.phoneForTel }}">{{ client.phoneFormatted }}</a>
-                <!--Address-->
-                <span class="cs-header">Address</span>
-                <a class="cs-link" href="{{ client.address.mapLink }}">
-                    {{ client.address.lineOne }}, <br>
-                    {{ client.address.lineTwo }}, <br>
-                    {{ client.address.city }}, {{ client.address.state }}
-                    {{ client.address.zip }}
-                </a>
-                <!-- Background Image-->
-                <picture class="cs-bg-picture">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 820, height: 1372 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 820, height: 1372 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 820, height: 1372 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | jpeg %}" alt="building" width="542" height="578" decoding="async">
-                </picture>
-            </div>
+            <aside class="cs-right-section" aria-labelledby="contact-details-title">
+                <div class="cs-card-intro">
+                    <span class="cs-topper">Direct Contact</span>
+                    <h2 class="cs-card-title" id="contact-details-title">Connect with MGCC</h2>
+                    <p class="cs-card-text">Reach our Canadian or U.S. team directly to discuss your international trade needs.</p>
+                </div>
+
+                <div class="cs-contact-list">
+                    <div class="cs-contact-group">
+                        <span class="cs-icon-wrapper" aria-hidden="true">
+                            <svg class="cs-icon" width="24" height="24" viewBox="0 0 24 24" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#contact-email"></use>
+                            </svg>
+                        </span>
+                        <div class="cs-detail">
+                            <span class="cs-header">Email</span>
+                            <a class="cs-link" href="mailto:{{ client.email }}">{{ client.email }}</a>
+                        </div>
+                    </div>
+
+                    <div class="cs-contact-group">
+                        <span class="cs-icon-wrapper" aria-hidden="true">
+                            <svg class="cs-icon" width="24" height="24" viewBox="0 0 24 24" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#contact-phone"></use>
+                            </svg>
+                        </span>
+                        <div class="cs-detail">
+                            <span class="cs-header">Phone Numbers</span>
+                            {% for phone in client.phones %}
+                                <a class="cs-link" href="tel:{{ phone.numberForTel }}">{{ phone.region }}: {{ phone.numberFormatted }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="cs-contact-group">
+                        <span class="cs-icon-wrapper" aria-hidden="true">
+                            <svg class="cs-icon" width="24" height="24" viewBox="0 0 24 24" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#contact-location"></use>
+                            </svg>
+                        </span>
+                        <div class="cs-detail">
+                            <span class="cs-header">Locations</span>
+                            {% for location in client.locations %}
+                                <a class="cs-link" href="{{ location.mapLink }}" target="_blank" rel="noopener">
+                                    {{ location.region }}: {{ location.street }}, {{ location.city }}, {{ location.state }}{% if location.postalCode %} {{ location.postalCode }}{% endif %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <svg class="cs-card-watermark" width="240" height="240" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <use href="/assets/svgs/mgcc-icons.svg#global-perspective"></use>
+                </svg>
+            </aside>
         </div>
     </section>
 

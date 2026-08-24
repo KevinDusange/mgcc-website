@@ -1,6 +1,6 @@
 ---
-title: "Pixel Perfect Websites | Code Stitch Web Designs | Denver, CO"
-description: "Meta description for the page"
+title: "Global Import, Export & Trade Solutions | MGCC"
+description: "MGCC provides import and export coordination, international logistics, global sourcing, and trade compliance support for businesses operating across global markets."
 permalink: "/"
 tags: "sitemap" # content/content.json will make sure that all pages in content/ are marked with a "sitemap" tag, for automatic sitemap generation. As index.html is not in content/, we need to add it here to ensure the root page is included in the sitemap generation
 ---
@@ -8,19 +8,15 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <!-- Critical styles are loaded first -->
-    <link rel="stylesheet" href="/assets/css/critical.css"/>
+    <!-- Preload only the hero image that matches the current viewport. -->
+    <link rel="preload" as="image" type="image/avif" href="/assets/images/mgcc/hero-mobile.avif" media="(max-width: 600px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/avif" href="/assets/images/mgcc/hero-tablet.avif" media="(min-width: 601px) and (max-width: 1024px)" fetchpriority="high">
+    <link rel="preload" as="image" type="image/avif" href="/assets/images/mgcc/hero-desktop.avif" media="(min-width: 1025px)" fetchpriority="high">
 
-    <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
-    {% if client.isProduction %}
-        <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript>
-            <link rel="stylesheet" href="/assets/css/local.css">
-        </noscript>
-
-    {% else %}
-        <link rel="stylesheet" href="/assets/css/local.css"/>
-    {% endif %}
+    <!-- Below-the-fold styles load without blocking first paint. -->
+    <link id="home-styles" rel="preload" href="/assets/css/local.css" as="style">
+    <script defer src="/assets/js/load-home-styles.js"></script>
+    <noscript><link rel="stylesheet" href="/assets/css/local.css"></noscript>
 
     <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
     <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
@@ -33,381 +29,287 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <!--                    Hero                      -->
     <!-- ============================================ -->
 
-    <section id="hero-143">
+    <section id="hero-2274">
         <div class="cs-container">
-            <span class="cs-topper">CodeStitch Presents</span>
-            <h1 class="cs-title">
-                The Intermediate Website Kit (LESS)
-            </h1>
-            <p class="cs-text">
-                Building faster websites, faster. Just clone, update _data/client.js, swap out some sections, and away you go!
-            </p>
-            <a href="/contact/" class="cs-button-solid">Get in Touch</a>
+            <div class="cs-content">
+                <span class="cs-topper">International Trade Solutions</span>
+                <h1 class="cs-title">Global Import, Export &amp; Trade Solutions</h1>
+                <p class="cs-text">
+                    Mega Global Commerce Corporation helps businesses trade across borders with reliable import and export coordination, international logistics, global sourcing, and trade compliance support.
+                </p>
+                <a href="#services-1644" class="cs-button-solid">
+                    Explore Our Trade Services
+                    <img class="cs-button-arrow" src="/assets/svgs/arrow-up-right-white.svg" decoding="async" alt="" width="20" height="20" aria-hidden="true">
+                </a>
+            </div>
         </div>
-
-        <!-- Background Image -->
         <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 640, height: 1490 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 640, height: 1490 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 640, height: 1490 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | jpeg %}" type="image/jpeg">
-            <!--Large Tablet Image-->
-            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 2048, height: 1922 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1300px)" srcset="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/landing.jpg" | resize({ width: 1, height: 1 }) | jpeg %}" alt="kitchen" width="1" height="1" loading="eager" decoding="async">
+            <source media="(max-width: 600px)" srcset="/assets/images/mgcc/hero-mobile.avif" type="image/avif">
+            <source media="(max-width: 600px)" srcset="/assets/images/mgcc/hero-mobile.webp" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="/assets/images/mgcc/hero-tablet.avif" type="image/avif">
+            <source media="(max-width: 1024px)" srcset="/assets/images/mgcc/hero-tablet.webp" type="image/webp">
+            <source media="(min-width: 1025px)" srcset="/assets/images/mgcc/hero-desktop.avif" type="image/avif">
+            <source media="(min-width: 1025px)" srcset="/assets/images/mgcc/hero-desktop.webp" type="image/webp">
+            <img aria-hidden="true" decoding="async" fetchpriority="high" src="/assets/images/mgcc/global-port-hero.jpg" alt="" width="1774" height="887">
         </picture>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                Side By Side                  -->
+    <!-- ============================================ -->
+
+    <section id="sbs-2525">
+        <div class="cs-container">
+            <picture class="cs-picture">
+                <source media="(max-width: 600px)" srcset="/assets/images/mgcc/partnership-mobile.avif" type="image/avif">
+                <source media="(max-width: 600px)" srcset="/assets/images/mgcc/partnership-mobile.webp" type="image/webp">
+                <source media="(min-width: 601px)" srcset="/assets/images/mgcc/partnership-desktop.avif" type="image/avif">
+                <source media="(min-width: 601px)" srcset="/assets/images/mgcc/partnership-desktop.webp" type="image/webp">
+                <img loading="lazy" decoding="async" fetchpriority="low" src="/assets/images/mgcc/international-partnership.jpg" alt="International trade professionals reviewing shipping documents" width="1122" height="1402">
+            </picture>
+            <div class="cs-content">
+                <span class="cs-topper">About MGCC</span>
+                <h2 class="cs-title">Your Partner in Global Commerce</h2>
+                <p class="cs-text">
+                    Mega Global Commerce Corporation is an international trading company focused on connecting businesses with opportunities across global markets. We support import and export activities across diverse industries, helping clients navigate the complexities of international commerce.
+                </p>
+                <p class="cs-text">
+                    From sourcing and trade coordination to logistics and compliance, MGCC takes a practical, client-focused approach to global trade. Our goal is to make international business more accessible, efficient, and reliable.
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- ============================================ -->
     <!--                   Services                   -->
     <!-- ============================================ -->
 
-    <section id="h-services-143">
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s1.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Full Kitchen Remodel
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s2.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Exterior Repairs
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s3.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Utility Maintenance
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s4.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Design Consultation
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-        </ul>
-    </section>
-
-    <!-- ============================================ -->
-    <!--                 Side By Side                 -->
-    <!-- ============================================ -->
-
-    <section id="RPsbs-313">
+    <section id="services-1644">
         <div class="cs-container">
-            <!-- Left Image Section -->
-            <div class="cs-image-group">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" alt="lawyers" width="522" height="581" loading="lazy" decoding="async">
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" alt="gavel" width="390" height="376" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <!-- Right Content Section-->
             <div class="cs-content">
-                <span class="cs-topper">About Us</span>
-                <h2 class="cs-title">
-                    About Stitch Law
-                </h2>
+                <span class="cs-topper">Our Services</span>
+                <h2 class="cs-title">What We Provide To Our Customers</h2>
                 <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+                    Mega Global Commerce Corporation offers a comprehensive suite of services to facilitate international trade. Our expertise spans import and export management, supply chain and logistics solutions, trade compliance, and global sourcing. We are committed to helping businesses expand their reach and succeed in the global marketplace.
                 </p>
-                <div class="cs-quote">
-                    <span class="cs-quote-text">
-                        In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind.
-                    </span>
-                    <span class="cs-name">Justin Time</span>
-                    <span class="cs-job">CEO-Founder</span>
-                    <img class="cs-quote-icon" loading="lazy" decoding="async" src="/assets/svgs/quote.svg" alt="gavel" width="136" height="77">
-                </div>
-                <a href="/about/" class="cs-button-solid">About Us</a>
             </div>
+            <ul class="cs-card-group">
+                <li class="cs-item" id="service-import-export">
+                    <div class="cs-image-group">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <use href="/assets/svgs/mgcc-icons.svg#import-export"></use>
+                        </svg>
+                    </div>
+                    <div class="cs-flex">
+                        <h2 class="cs-h2">Import & Export</h2>
+                        <p class="cs-item-text">
+                            Facilitating the movement of goods and services across international borders, ensuring compliance with trade regulations, and providing efficient solutions for businesses to expand their global reach.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-item" id="service-supply-chain">
+                    <div class="cs-image-group">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <use href="/assets/svgs/mgcc-icons.svg#supply-chain"></use>
+                        </svg>
+                    </div>
+                    <div class="cs-flex">
+                        <h2 class="cs-h2">Supply Chain & Logistics</h2>
+                        <p class="cs-item-text">
+                            Managing the flow of goods, information, and resources from origin to destination to ensure timely and efficient delivery through reliable logistics coordination and supply-chain solutions.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-item" id="service-trade-compliance">
+                    <div class="cs-image-group">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <use href="/assets/svgs/mgcc-icons.svg#compliance"></use>
+                        </svg>
+                    </div>
+                    <div class="cs-flex">
+                        <h2 class="cs-h2">Trade Compliance</h2>
+                        <p class="cs-item-text">
+                            Ensuring that all import and export activities adhere to international trade regulations, customs requirements, and legal standards to mitigate risks and maintain compliance.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-item" id="service-global-sourcing">
+                    <div class="cs-image-group">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <use href="/assets/svgs/mgcc-icons.svg#sourcing"></use>
+                        </svg>
+                    </div>
+                    <div class="cs-flex">
+                        <h2 class="cs-h2">Global Sourcing & Market Solutions</h2>
+                        <p class="cs-item-text">
+                            Identifying and procuring products from international suppliers, while providing market insights and solutions to help businesses expand their reach and optimize their global operations.
+                        </p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
 
+
     <!-- ============================================ -->
-    <!--             Side By Side Reverse             -->
+    <!--                 Why Choose                   -->
     <!-- ============================================ -->
 
-    <section id="RPsbsr-313">
+    <section id="why-choose-892">
         <div class="cs-container">
-            <!-- Left Image Section -->
-            <div class="cs-image-group">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" alt="lawyers" width="522" height="581" loading="lazy" decoding="async">
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" alt="gavel" width="390" height="376" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <!-- Right Content Section-->
             <div class="cs-content">
-                <span class="cs-topper">About Us</span>
-                <h2 class="cs-title">
-                    About Stitch Law
-                </h2>
+                <span class="cs-topper">Why MGCC</span>
+                <h2 class="cs-title">Why Choose Us</h2>
                 <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+                    We combine international market awareness, dependable coordination, and adaptable service to help businesses move confidently through every stage of global trade.
                 </p>
-                <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
-                </p>
-                <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
-                </p>
-                <a href="/about/" class="cs-button-solid">About Us</a>
             </div>
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <use href="/assets/svgs/mgcc-icons.svg#global-perspective"></use>
+                    </svg>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Global Perspective</h3>
+                        <p class="cs-item-text">
+                            We have a deep understanding of international markets and cultural nuances, allowing us to provide valuable insights and strategies for businesses looking to expand globally.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <use href="/assets/svgs/mgcc-icons.svg#partnership"></use>
+                    </svg>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Reliable Partnerships</h3>
+                        <p class="cs-item-text">
+                            We have established reliable global partnerships, enabling us to connect businesses with trusted suppliers and partners worldwide, ensuring seamless operations and successful market entry.
+                        </p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <use href="/assets/svgs/mgcc-icons.svg#flexibility"></use>
+                    </svg>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Industry Flexibility</h3>
+                        <p class="cs-item-text">
+                            We cater to a wide range of industries, providing tailored solutions that address the unique challenges and requirements of each sector, ensuring effective and efficient trade operations.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <a href="/contact/" class="cs-button-solid">Contact Us</a>
+            <!--Floating Arrow Graphic-->
+            <img class="cs-floater" src="/assets/svgs/decorative-arrow.svg" alt="" loading="lazy" decoding="async" aria-hidden="true">
         </div>
     </section>
 
+
     <!-- ============================================ -->
-    <!--                   Gallery                    -->
+    <!--                   Services                   -->
     <!-- ============================================ -->
 
-    <section id="gallery-48">
+    <section id="services-1191">
         <div class="cs-container">
             <div class="cs-content">
-                <span class="cs-topper">Our Portfolio</span>
-                <h2 class="cs-title">
-                    Et orci volutpat, back up generator installations
-                </h2>
+                <span class="cs-topper">Industries</span>
+                <h2 class="cs-title">Connecting Businesses Across Borders</h2>
+                <p class="cs-text">
+                    MGCC supports the movement of products, materials, and equipment across a broad range of industries, adapting each trade solution to the needs of the sector.
+                </p>
             </div>
-            <div class="cs-image-group">
-                <div class="cs-row cs-row-1">
-                    <!-- Row 1-->
-                    <picture class="cs-picture cs-picture-1">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 182, height: 250 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 182, height: 250 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 182, height: 250 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 634, height: 798 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 634, height: 798 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 634, height: 798 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 826, height: 1134 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 826, height: 1134 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 826, height: 1134 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port1.jpg" | resize({ width: 826, height: 1134 }) | jpeg %}" alt="new hallway" width="413" height="567" loading="lazy" decoding="async">
-                    </picture>
-                    <picture class="cs-picture cs-picture-2">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 182, height: 276 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 182, height: 276 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 182, height: 276 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 634, height: 886 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 634, height: 886 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 634, height: 886 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 826, height: 1258 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 826, height: 1258 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 826, height: 1258 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port4.jpg" | resize({ width: 826, height: 1258 }) | jpeg %}" alt="new home construction" width="413" height="629" loading="lazy" decoding="async">
-                    </picture>
-                    <picture class="cs-picture cs-picture-3">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 182, height: 226 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 182, height: 226 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 182, height: 226 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 634, height: 720 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 634, height: 720 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 634, height: 720 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 826, height: 1024 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 826, height: 1024 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 826, height: 1024 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port7.jpg" | resize({ width: 826, height: 1024 }) | jpeg %}" alt="building a new wall" width="413" height="512" loading="lazy" decoding="async">
-                    </picture>
-                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-                </div>
-                <!-- Row 2 -->
-                <div class="cs-row cs-row-2">
-                    <picture class="cs-picture cs-picture-1">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 182, height: 216 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 182, height: 216 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 182, height: 216 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 634, height: 692 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 634, height: 692 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 634, height: 692 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 826, height: 984 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 826, height: 984 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 826, height: 984 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port2.jpg" | resize({ width: 826, height: 984 }) | jpeg %}" alt="new kitchen" width="413" height="492" loading="lazy" decoding="async">
-                    </picture>
-                    <picture class="cs-picture cs-picture-2">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 182, height: 228 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 182, height: 228 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 182, height: 228 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 634, height: 728 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 634, height: 728 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 634, height: 728 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 826, height: 1034 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 826, height: 1034 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 826, height: 1034 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port5.jpg" | resize({ width: 826, height: 1034 }) | jpeg %}" alt="apartment addition" width="413" height="517" loading="lazy" decoding="async">
-                    </picture>
-
-                    <picture class="cs-picture cs-picture-3">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 182, height: 276 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 182, height: 276 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 182, height: 276 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 634, height: 886 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 634, height: 886 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 634, height: 886 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 826, height: 1258 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 826, height: 1258 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 826, height: 1258 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port8.jpg" | resize({ width: 826, height: 1258 }) | jpeg %}" alt="kew kitchen cabinets" width="413" height="629" loading="lazy" decoding="async">
-                    </picture>
-
-                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-                </div>
-                <!-- Row 3 -->
-                <div class="cs-row cs-row-3">
-                    <picture class="cs-picture cs-picture-1">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 182, height: 276 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 182, height: 276 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 182, height: 276 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 634, height: 880 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 634, height: 880 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 634, height: 880 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 826, height: 1250 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 826, height: 1250 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 826, height: 1250 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port3.jpg" | resize({ width: 826, height: 1250 }) | jpeg %}" alt="new black window structure" width="413" height="625" loading="lazy" decoding="async">
-                    </picture>
-                    <picture class="cs-picture cs-picture-2">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 182, height: 198 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 182, height: 198 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 182, height: 198 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 634, height: 636 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 634, height: 636 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 634, height: 636 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 826, height: 904 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 826, height: 904 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 826, height: 904 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port6.jpg" | resize({ width: 826, height: 904 }) | jpeg %}" alt="kitchen rebovation" width="413" height="452" loading="lazy" decoding="async">
-                    </picture>
-
-                    <picture class="cs-picture cs-picture-3">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 182, height: 276 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 182, height: 276 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 182, height: 276 }) | jpeg %}" type="image/jpeg">
-                        <!--Tablet Image-->
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 634, height: 886 }) | avif %}" type="image/avif">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 634, height: 886 }) | webp %}" type="image/webp">
-                        <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 634, height: 886 }) | jpeg %}" type="image/jpeg">
-                        <!--Desktop Image-->
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 826, height: 1258 }) | avif %}" type="image/avif">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 826, height: 1258 }) | webp %}" type="image/webp">
-                        <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 826, height: 1258 }) | jpeg %}" type="image/jpeg">
-                        <img src="{% getUrl "/assets/images/portfolio/port9.jpg" | resize({ width: 826, height: 1258 }) | jpeg %}" alt="bathroom renovation" width="413" height="629" loading="lazy" decoding="async">
-                    </picture>
-
-                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-                </div>
+            <!-- The globe is centered between the industry lists on desktop. -->
+            <div class="cs-wrapper">
+                <picture class="cs-image">
+                    <source media="(max-width: 600px)" srcset="/assets/images/mgcc/globe-mobile.avif" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="/assets/images/mgcc/globe-mobile.webp" type="image/webp">
+                    <source media="(min-width: 601px)" srcset="/assets/images/mgcc/globe-desktop.avif" type="image/avif">
+                    <source media="(min-width: 601px)" srcset="/assets/images/mgcc/globe-desktop.webp" type="image/webp">
+                    <img loading="lazy" decoding="async" fetchpriority="low" src="/assets/images/mgcc/globe-industries.webp" alt="Earth connected by global trade routes" width="800" height="743">
+                </picture>
+                <ul class="cs-card-group">
+                    <li class="cs-item">
+                        <div class="cs-picture">
+                            <svg class="cs-icon" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#consumer-goods"></use>
+                            </svg>
+                        </div>
+                        <!-- Text Grouped For Flexbox-->
+                        <div class="cs-text-group">
+                            <h3 class="cs-h3">Consumer Goods</h3>
+                            <p class="cs-item-text">Trade coordination for packaged products and everyday goods moving between international markets.</p>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <div class="cs-picture">
+                            <svg class="cs-icon" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#industrial"></use>
+                            </svg>
+                        </div>
+                        <!-- Text Grouped For Flexbox-->
+                        <div class="cs-text-group">
+                            <h3 class="cs-h3">Industrial Equipment</h3>
+                            <p class="cs-item-text">Sourcing and logistics support for machinery, components, and operational equipment.</p>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <div class="cs-picture">
+                            <svg class="cs-icon" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#agriculture"></use>
+                            </svg>
+                        </div>
+                        <!-- Text Grouped For Flexbox-->
+                        <div class="cs-text-group">
+                            <h3 class="cs-h3">Food & Agriculture</h3>
+                            <p class="cs-item-text">International trade solutions for agricultural inputs, food products, and related supplies.</p>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <div class="cs-picture">
+                            <svg class="cs-icon" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#resources-commodities"></use>
+                            </svg>
+                        </div>
+                        <!-- Text Grouped For Flexbox-->
+                        <div class="cs-text-group">
+                            <h3 class="cs-h3">Resources & Commodities</h3>
+                            <p class="cs-item-text">Trade support for metals, minerals, energy products, and other globally sourced raw materials.</p>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <div class="cs-picture">
+                            <svg class="cs-icon" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#construction"></use>
+                            </svg>
+                        </div>
+                        <!-- Text Grouped For Flexbox-->
+                        <div class="cs-text-group">
+                            <h3 class="cs-h3">Construction Materials</h3>
+                            <p class="cs-item-text">Sourcing and cross-border movement of materials, fixtures, and project supplies.</p>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <div class="cs-picture">
+                            <svg class="cs-icon" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <use href="/assets/svgs/mgcc-icons.svg#technology"></use>
+                            </svg>
+                        </div>
+                        <!-- Text Grouped For Flexbox-->
+                        <div class="cs-text-group">
+                            <h3 class="cs-h3">Technology & Electronics</h3>
+                            <p class="cs-item-text">Global sourcing and logistics coordination for electronics, devices, and components.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <a href="/project-one/" class="cs-button-solid">View a Project</a>
+            <a href="/contact/" class="cs-button-solid">Discuss Your Needs</a>
         </div>
     </section>
+
 
     <!-- ============================================ -->
     <!--                   Reviews                    -->
@@ -416,12 +318,12 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <section id="reviews-67">
         <div class="cs-container">
             <div class="cs-content">
-                <span class="cs-topper">Our Reviews</span>
+                <span class="cs-topper">Illustrative Reviews</span>
                 <h2 class="cs-title">
-                    Words From Our Customers
+                    The Client Experience We Aim to Deliver
                 </h2>
                 <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.
+                    The testimonials below are fictional examples created for demonstration purposes. They reflect the practical, responsive service experience MGCC is built to provide.
                 </p>
             </div>
             <ul class="cs-card-group">
@@ -429,12 +331,12 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 <li class="cs-item">
                     <img class="cs-item-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/profile.svg" alt="profile picture" width="80" height="80">
                     <p class="cs-item-text">
-                        Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!
+                        MGCC helped our team turn a complicated sourcing project into a clear, manageable process. Communication was consistent, the documentation requirements were explained early, and we always understood the next step.
                     </p>
                     <div class="cs-info">
                         <div class="cs-flex-group">
-                            <span class="cs-name">Jon Doe</span>
-                            <span class="cs-desc">Homeowner</span>
+                            <span class="cs-name">Maya Chen</span>
+                            <span class="cs-desc">Procurement Director, Consumer Goods</span>
                         </div>
                         <img class="cs-item-stars" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/stars.svg" alt="stars" width="96" height="16">
                     </div>
@@ -443,12 +345,12 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 <li class="cs-item">
                     <img class="cs-item-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/profile.svg" alt="profile picture" width="80" height="80">
                     <p class="cs-item-text">
-                        Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget.
+                        What stood out was the practical advice. Instead of giving us a generic logistics plan, MGCC worked through our timing, supplier, and compliance concerns and helped us identify issues before the shipment moved.
                     </p>
                     <div class="cs-info">
                         <div class="cs-flex-group">
-                            <span class="cs-name">Jon Doe</span>
-                            <span class="cs-desc">Homeowner</span>
+                            <span class="cs-name">Daniel Brooks</span>
+                            <span class="cs-desc">Operations Manager, Industrial Equipment</span>
                         </div>
                         <img class="cs-item-stars" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/stars.svg" alt="stars" width="96" height="16">
                     </div>

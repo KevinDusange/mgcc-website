@@ -3,6 +3,7 @@
     "tags": "post",
     "eleventyComputed": {
         "preloadImg": "{{ image }}",
+        "metaTitle": "{{ title }} | MGCC",
         "permalink": "/blog/{{ url | slugify }}/index.html"
     }
 }

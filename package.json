@@ -4,11 +4,12 @@
 	"description": "The official CodeStitch Intermediate kit, featuring 11ty, Decap CMS and LESS - all set up for you! Perfect for websites of all sizes.",
 	"main": "index.js",
 	"scripts": {
+		"clean": "node scripts/clean-output.js",
 		"watch:cms": "npx decap-server",
 		"watch:eleventy": "cross-env ELEVENTY_ENV=DEV eleventy --serve",
 		"build:eleventy": "cross-env ELEVENTY_ENV=PROD eleventy",
 		"start": "run-p watch:*",
-		"build": "run-s build:*",
+		"build": "run-s clean build:*",
 		"preview": "cross-env ELEVENTY_ENV=PROD eleventy --serve",
 		"remove-dark-mode": "node scripts/remove-dark-mode.js",
 		"remove-decap": "node scripts/remove-decap.js",
