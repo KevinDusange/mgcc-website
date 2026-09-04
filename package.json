@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"clean": "node scripts/clean-output.js",
-		"watch:cms": "npx decap-server",
-		"watch:eleventy": "cross-env ELEVENTY_ENV=DEV eleventy --serve",
+		"watch:cms": "cross-env PORT=8082 decap-server",
+		"watch:eleventy": "cross-env ELEVENTY_ENV=DEV eleventy --serve --port=8083",
 		"build:eleventy": "cross-env ELEVENTY_ENV=PROD eleventy",
 		"start": "run-p watch:*",
 		"build": "run-s clean build:*",
@@ -27,13 +27,17 @@
 		"url": "https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS/issues"
 	},
 	"homepage": "https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS#readme",
+	"engines": {
+		"node": ">=22 <25"
+	},
+	"overrides": {
+		"qs": "^6.16.0"
+	},
 	"dependencies": {
 		"@11ty/eleventy": "^3.1.6",
 		"@codestitchofficial/eleventy-plugin-minify": "^1.1.3",
-		"@codestitchofficial/eleventy-plugin-sharp-images": "^2.2.0",
 		"@quasibit/eleventy-plugin-sitemap": "^2.2.0",
 		"autoprefixer": "^10.5.4",
-		"codestitch-sharp-image-automation": "^0.5.0",
 		"cross-env": "^10.1.0",
 		"cssnano": "^7.1.9",
 		"decap-server": "^3.9.1",
@@ -42,6 +46,7 @@
 		"less": "^4.6.7",
 		"netlify-plugin-cache": "^1.0.3",
 		"npm-run-all2": "^5.0.2",
-		"postcss": "^8.5.25"
+		"postcss": "^8.5.25",
+		"sharp": "^0.35.3"
 	}
 }

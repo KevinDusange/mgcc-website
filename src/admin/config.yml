@@ -3,7 +3,8 @@ backend:
     name: git-gateway
 
 # Keep this to allow you to edit the cms locally
-local_backend: true
+local_backend:
+    url: http://localhost:8082/api/v1
 
 # change url to a link to the image you want to use, no file paths, must be a URL
 logo_url: https://codestitch.app/frontend/images/logo.png

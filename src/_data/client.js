@@ -33,10 +33,6 @@ module.exports = {
             mapLink: "https://www.google.com/maps/search/?api=1&query=3227%20S%20162nd%20Street%2C%20SeaTac%2C%20WA",
         },
     ],
-    socials: {
-        facebook: "https://www.facebook.com/",
-        instagram: "https://www.instagram.com/",
-    },
     //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
     domain: "https://mgcc.us",
     // Passing the isProduction variable for use in HTML templates

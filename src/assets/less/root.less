@@ -1469,42 +1469,6 @@
 			margin-bottom: (16/16rem);
 		}
 
-		.cs-social {
-			display: inline-flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			gap: (12/16rem);
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-
-		.cs-social-link {
-			width: (28/16rem); /* MGCC — 24px is below the 24x24 min target size */
-			height: (28/16rem);
-			background-color: var(--accent); /* MGCC — was the purple-grey #4e4b66 */
-			border-radius: 50%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: relative;
-			z-index: 1;
-			transition: transform 0.3s, background-color 0.3s;
-
-			&:hover {
-				/* MGCC — BUG IN STOCK KIT: hover was #1a1a1a, the exact same colour
-				   as the footer background, so the icon appeared to vanish. */
-				background-color: var(--primary);
-				transform: translateY(-0.1875rem);
-			}
-		}
-
-		.cs-social-img {
-			height: (13/16rem);
-			width: auto;
-			display: block;
-		}
-
 		/* Navigation Links */
 		.cs-nav {
 			padding: 0;
@@ -1645,13 +1609,6 @@
 
 		.cs-text {
 			width: 100%;
-		}
-
-		.cs-social {
-			flex-direction: row;
-			position: relative;
-			top: auto;
-			right: auto;
 		}
 
 		.cs-contact {

@@ -5,13 +5,16 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 // 📦 Plugin Imports
-const pluginImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
+const pluginImages = require("./src/config/plugins/images");
 const pluginMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 // ⚙️ Configuration Files
 const configSitemap = require("./src/config/plugins/sitemap");
-const configImages = require("./src/config/plugins/images");
+const configImages = {
+	urlPath: "/assets/images",
+	outputDir: "public/assets/images",
+};
 
 // 🔧 Processing Functions
 const less = require("./src/config/processors/less");
@@ -48,7 +51,7 @@ module.exports = function (eleventyConfig) {
 	/*
 	 * 🖼️ Image Optimization
 	 * Resize and optimize images for better performance using {% getUrl %}
-	 * Documentation: https://github.com/CodeStitchOfficial/eleventy-plugin-sharp-images
+	 * Uses the maintained Sharp package through the local compatibility plugin.
 	 */
 	eleventyConfig.addPlugin(pluginImages, configImages);
 
