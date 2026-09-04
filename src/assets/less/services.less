@@ -1,0 +1,250 @@
+// Service detail pages
+
+@media only screen and (min-width: 0rem) {
+    #service-detail,
+    #service-process,
+    #service-fit {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        .cs-section-heading {
+            width: 100%;
+            max-width: (700/16rem);
+            margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .cs-h3 {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            line-height: 1.25em;
+            margin: 0 0 (12/16rem);
+            color: var(--headerColor);
+        }
+
+        .cs-item-text {
+            font-size: (16/16rem);
+            line-height: 1.6em;
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+    }
+
+    #service-detail {
+        .cs-intro-grid {
+            display: grid;
+            gap: clamp(2.5rem, 6vw, 5rem);
+            align-items: center;
+        }
+
+        .cs-content {
+            max-width: (650/16rem);
+        }
+
+        .cs-text {
+            margin-bottom: (16/16rem);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-service-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 5 / 4;
+            overflow: hidden;
+            border-radius: (16/16rem);
+            box-shadow: 0 (20/16rem) (48/16rem) rgba(0, 0, 0, 0.12);
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .cs-capabilities {
+            margin-top: clamp(4rem, 8vw, 7rem);
+        }
+
+        .cs-card-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (16/16rem);
+            margin: 0;
+            padding: 0;
+        }
+
+        .cs-item {
+            list-style: none;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border: 1px solid #e4e4e4;
+            border-top: (3/16rem) solid var(--primary);
+            background: #fff;
+        }
+
+        .cs-number {
+            display: block;
+            margin-bottom: (20/16rem);
+            color: var(--secondary);
+            font-size: (14/16rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+    }
+
+    #service-process {
+        background: #f5f3ef;
+
+        .cs-process-list {
+            display: grid;
+            gap: (16/16rem);
+            margin: 0;
+            padding: 0;
+            counter-reset: service-step;
+        }
+
+        .cs-process-item {
+            display: flex;
+            gap: (20/16rem);
+            align-items: flex-start;
+            list-style: none;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            background: #fff;
+        }
+
+        .cs-step-number {
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: (42/16rem);
+            height: (42/16rem);
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+        }
+    }
+
+    #service-fit {
+        .cs-container {
+            display: grid;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: start;
+        }
+
+        .cs-fit-card {
+            padding: clamp(1.75rem, 5vw, 3.5rem);
+            border-left: (4/16rem) solid var(--primary);
+            background: #f7f7f7;
+        }
+
+        .cs-check-list {
+            display: grid;
+            gap: (14/16rem);
+            margin: (24/16rem) 0 (32/16rem);
+            padding: 0;
+
+            li {
+                position: relative;
+                list-style: none;
+                padding-left: (28/16rem);
+                color: var(--bodyTextColor);
+                line-height: 1.55em;
+
+                &:before {
+                    content: "✓";
+                    position: absolute;
+                    left: 0;
+                    color: var(--primary);
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .cs-related {
+            padding: clamp(1.75rem, 4vw, 2.5rem);
+            background: var(--dark);
+
+            .cs-topper {
+                color: var(--secondaryLight);
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                list-style: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+
+            a {
+                display: flex;
+                justify-content: space-between;
+                gap: (24/16rem);
+                padding: (18/16rem) 0;
+                color: #fff;
+                font-weight: 600;
+                line-height: 1.35em;
+                text-decoration: none;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: var(--primaryLight);
+                }
+            }
+        }
+
+        .cs-related-title {
+            margin: 0 0 (16/16rem);
+            color: #fff;
+            font-family: var(--headerFont);
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 400;
+        }
+    }
+}
+
+@media only screen and (min-width: 48rem) {
+    #service-detail {
+        .cs-intro-grid {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        }
+
+        .cs-card-group {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    #service-process {
+        .cs-process-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    #service-fit {
+        .cs-container {
+            grid-template-columns: minmax(0, 1.5fr) minmax((280/16rem), 0.75fr);
+        }
+    }
+}
+
+@media only screen and (min-width: 64rem) {
+    #service-detail .cs-card-group,
+    #service-process .cs-process-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

@@ -1,0 +1,113 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="preload" as="image" href="{% getUrl serviceHeroImage | resize({ width: 640, height: 600 }) | avif %}">
+    <link rel="stylesheet" href="/assets/css/services.css">
+{% endblock %}
+
+{% block body %}
+    <div id="banner-310">
+        <div class="cs-container">
+            <h1 class="cs-int-title">{{ serviceTitle }}</h1>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">Home</a>
+                <a href="/#services-1644" class="cs-link">Services</a>
+                <a href="{{ page.url }}" class="cs-link cs-active">{{ serviceShortTitle }}</a>
+            </div>
+        </div>
+        <picture class="cs-background">
+            <source media="(max-width: 600px)" srcset="{% getUrl serviceHeroImage | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
+            <source media="(max-width: 600px)" srcset="{% getUrl serviceHeroImage | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
+            <source media="(max-width: 600px)" srcset="{% getUrl serviceHeroImage | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
+            <source media="(max-width: 1024px)" srcset="{% getUrl serviceHeroImage | resize({ width: 1600, height: 736 }) | avif %}" type="image/avif">
+            <source media="(max-width: 1024px)" srcset="{% getUrl serviceHeroImage | resize({ width: 1600, height: 736 }) | webp %}" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="{% getUrl serviceHeroImage | resize({ width: 1600, height: 736 }) | jpeg %}" type="image/jpeg">
+            <source media="(min-width: 1024px)" srcset="{% getUrl serviceHeroImage | resize({ width: 1672, height: 420 }) | avif %}" type="image/avif">
+            <source media="(min-width: 1024px)" srcset="{% getUrl serviceHeroImage | resize({ width: 1672, height: 420 }) | webp %}" type="image/webp">
+            <source media="(min-width: 1024px)" srcset="{% getUrl serviceHeroImage | resize({ width: 1672, height: 420 }) | jpeg %}" type="image/jpeg">
+            <img src="{% getUrl serviceHeroImage | resize({ width: 1672, height: 420 }) | jpeg %}" alt="{{ serviceHeroAlt }}" width="1672" height="420" loading="eager" decoding="async">
+        </picture>
+    </div>
+
+    <section id="service-detail">
+        <div class="cs-container">
+            <div class="cs-intro-grid">
+                <div class="cs-content">
+                    <span class="cs-topper">{{ serviceTopper }}</span>
+                    <h2 class="cs-title">{{ serviceHeading }}</h2>
+                    {% for paragraph in serviceIntro %}
+                        <p class="cs-text">{{ paragraph }}</p>
+                    {% endfor %}
+                </div>
+                <picture class="cs-service-image">
+                    <source srcset="{% getUrl serviceBodyImage | resize({ width: 900, height: 720 }) | avif %}" type="image/avif">
+                    <source srcset="{% getUrl serviceBodyImage | resize({ width: 900, height: 720 }) | webp %}" type="image/webp">
+                    <img src="{% getUrl serviceBodyImage | resize({ width: 900, height: 720 }) | jpeg %}" alt="{{ serviceBodyAlt }}" width="900" height="720" loading="lazy" decoding="async">
+                </picture>
+            </div>
+
+            <div class="cs-capabilities">
+                <div class="cs-section-heading">
+                    <span class="cs-topper">How We Help</span>
+                    <h2 class="cs-title">Core Capabilities</h2>
+                </div>
+                <ul class="cs-card-group">
+                    {% for capability in capabilities %}
+                        <li class="cs-item">
+                            <span class="cs-number" aria-hidden="true">0{{ loop.index }}</span>
+                            <h3 class="cs-h3">{{ capability.title }}</h3>
+                            <p class="cs-item-text">{{ capability.text }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-process">
+        <div class="cs-container">
+            <div class="cs-section-heading">
+                <span class="cs-topper">Our Approach</span>
+                <h2 class="cs-title">A Clear Path Forward</h2>
+                <p class="cs-text">We adapt the engagement to your products, markets, timelines, and internal resources.</p>
+            </div>
+            <ol class="cs-process-list">
+                {% for step in processSteps %}
+                    <li class="cs-process-item">
+                        <span class="cs-step-number">{{ loop.index }}</span>
+                        <div>
+                            <h3 class="cs-h3">{{ step.title }}</h3>
+                            <p class="cs-item-text">{{ step.text }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </section>
+
+    <section id="service-fit">
+        <div class="cs-container">
+            <div class="cs-fit-card">
+                <span class="cs-topper">Who We Support</span>
+                <h2 class="cs-title">Is This Service Right for Your Business?</h2>
+                <ul class="cs-check-list">
+                    {% for item in idealFor %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="/contact/" class="cs-button-solid">Discuss Your Requirements</a>
+            </div>
+            <aside class="cs-related" aria-labelledby="related-services-title">
+                <span class="cs-topper">Explore More</span>
+                <h2 class="cs-related-title" id="related-services-title">Related Services</h2>
+                <ul>
+                    {% for service in relatedServices %}
+                        <li><a href="{{ service.url }}">{{ service.title }} <span aria-hidden="true">→</span></a></li>
+                    {% endfor %}
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+{% endblock %}
